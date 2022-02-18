@@ -26,9 +26,9 @@
 
   @media (min-width: 992px) {
     header {
-      padding-top: 3rem;
+      padding-top: 6.25rem;
       padding-bottom: 5.5rem;
-      background-position: center top 20%;
+      background-position: center top 66px;
     }
 
     h1 {
