@@ -1,16 +1,18 @@
 <script>
   let output = '100K';
+  let price = '$16.00';
   let fillLower = '50%';
 
-  // 10K pageviews / $8 per month
-  // 50K pageviews / $12 per month
-  // 100K pageviews / $16 per month
-  // 500k pageviews / $24 per month
-  // 1M pageviews / $36 per month
-
   const handleInput = (e) => {
-    let values = ['10K', '50K', '100K', '500K', '1M'];
-    output = values[e.target.value];
+    let values = [
+      ['10K', '$8.00'],
+      ['50K', '$12.00'],
+      ['100K', '$16.00'],
+      ['500K', '$24.00'],
+      ['1M', '$36.00'],
+    ];
+    output = values[e.target.value][0];
+    price = values[e.target.value][1]
     fillLower = (e.target.value / e.target.max) * 100 + '%';
   }
 </script>
@@ -26,7 +28,7 @@
     </div>
 
     <p class="price">
-      <strong>$16.00</strong> / month
+      <strong><output>{price}</output></strong> / month
     </p>
 
     <!-- Rounded switch -->
