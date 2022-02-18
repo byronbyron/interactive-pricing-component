@@ -1,19 +1,30 @@
 <script>
+  import currency from 'currency.js';
+
   let output = '100K';
-  let price = '$16.00';
+  let price = 16.00;
   let fillLower = '50%';
+  const discount = 25;
 
   const handleInput = (e) => {
     let values = [
-      ['10K', '$8.00'],
-      ['50K', '$12.00'],
-      ['100K', '$16.00'],
-      ['500K', '$24.00'],
-      ['1M', '$36.00'],
+      ['10K', 8.00],
+      ['50K', 12.00],
+      ['100K', 16.00],
+      ['500K', 24.00],
+      ['1M', 36.00],
     ];
     output = values[e.target.value][0];
-    price = values[e.target.value][1]
+    price = values[e.target.value][1];
     fillLower = (e.target.value / e.target.max) * 100 + '%';
+  }
+
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      price = price - (price * discount / 100);
+    } else {
+      price = price / ((100 - discount) / 100);
+    }
   }
 </script>
 
@@ -28,7 +39,7 @@
     </div>
 
     <p class="price">
-      <strong><output>{price}</output></strong> / month
+      <strong><output>{currency(price).format()}</output></strong> / month
     </p>
 
     <!-- Rounded switch -->
@@ -36,7 +47,7 @@
       <label for="billing">Monthly Billing</label>
 
       <label class="switch">
-        <input type="checkbox" id="billing">
+        <input type="checkbox" id="billing" on:change={handleToggle}>
         <span class="slider round"></span>
       </label>
 
@@ -44,7 +55,7 @@
         <span>Yearly Billing</span>
 
         <span class="discount">
-          -25% <span class="">discount</span>
+          -25% <span>discount</span>
         </span>
       </label>
     </div>
@@ -119,6 +130,7 @@
     position: relative;
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
 
   .discount {
