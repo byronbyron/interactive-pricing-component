@@ -17,7 +17,7 @@
 
 <form>
   <div class="form-main">
-    <p class="page-views">
+    <p class="views">
       <output>{output}</output> Pageviews
     </p>
 
@@ -25,20 +25,26 @@
       <input id="rangeInput" type="range" min="0" value="2" max="4" step="1" on:input={handleInput}>
     </div>
 
-    <p>$<span>16</span> /month</p>
+    <p class="price">
+      <strong>$16.00</strong> / month
+    </p>
 
-    <div>
-      <span>Monthly Billing</span>
+    <!-- Rounded switch -->
+    <div class="control">
+      <label for="billing">Monthly Billing</label>
 
-      <!-- Rounded switch -->
       <label class="switch">
-        <input type="checkbox">
+        <input type="checkbox" id="billing">
         <span class="slider round"></span>
       </label>
 
-      <span>Yearly Billing</span>
+      <label for="billing">
+        <span>Yearly Billing</span>
 
-      <span>25% discount</span>
+        <span class="discount">
+          -25% <span class="">discount</span>
+        </span>
+      </label>
     </div>
   </div>
 
@@ -65,7 +71,7 @@
   }
 
   .form-range {
-    margin-bottom: 2rem;
+    margin-bottom: 1.3rem;
   }
 
   .form-main {
@@ -78,10 +84,66 @@
     border-top: 1px solid var(--light-grayish-blue);
   }
 
-  .page-views {
+  .views {
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 1.375rem;
+  }
+
+  .price {
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.875rem;
+  }
+
+  .price strong {
+    font-size: 2rem;
+    letter-spacing: -0.025em;
+    margin-right: 0.625rem;
+    color: var(--dark-desaturated-blue);
+  }
+
+  .control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -0.875rem;
+  }
+
+  label {
+    font-size: 0.75rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .discount {
+    font-size: 0.625rem;
+    font-weight: 800;
+    line-height: 1.125rem;
+    display: inline-block;
+    background-color: var(--light-grayish-red);
+    color: var(--light-red);
+    width: 2.5rem;
+    height: 1.125rem;
+    border-radius: 1.125rem;
+    position: absolute;
+    left: 100%;
+    margin-left: 0.25rem;
+  }
+
+  .discount span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>
