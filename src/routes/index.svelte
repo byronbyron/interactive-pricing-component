@@ -28,7 +28,7 @@
   }
 </script>
 
-<form>
+<form class="fade-up-2">
   <div class="form-main">
     <div class="form-header">
       <p class="views">

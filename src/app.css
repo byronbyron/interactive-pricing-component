@@ -227,4 +227,20 @@ input[type=range]:focus::-ms-fill-upper {
         margin-left: 1rem;
         margin-right: 1rem;
     }
+
+    .fade-up-1 {
+        animation: .5s .25s fadeup backwards ease-out;
+    }
+
+    .fade-up-2 {
+        animation: .5s .5s fadeup backwards ease-out;
+    }
+
+    @keyframes fadeup {
+        from {
+            transform: translate3d(0, 2rem, 0);
+            opacity: 0;
+        }
+    }
+
 }
