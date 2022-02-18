@@ -30,17 +30,19 @@
 
 <form>
   <div class="form-main">
-    <p class="views">
-      <output>{output}</output> Pageviews
-    </p>
+    <div class="form-header">
+      <p class="views">
+        <output>{output}</output> Pageviews
+      </p>
 
-    <div class="form-range" style="--range: {fillLower}">
-      <input id="rangeInput" type="range" min="0" value="2" max="4" step="1" on:input={handleInput}>
+      <div class="form-range" style="--range: {fillLower}">
+        <input id="rangeInput" type="range" min="0" value="2" max="4" step="1" on:input={handleInput}>
+      </div>
+
+      <p class="price">
+        <strong><output>{currency(price).format()}</output></strong> / month
+      </p>
     </div>
-
-    <p class="price">
-      <strong><output>{currency(price).format()}</output></strong> / month
-    </p>
 
     <!-- Rounded switch -->
     <div class="control">
@@ -68,7 +70,9 @@
       <li>Email reports</li>
     </ul>
 
-    <button>Start my trial</button>
+    <div>
+      <button>Start my trial</button>
+    </div>
   </div>
 </form>
 
@@ -81,6 +85,7 @@
     text-align: center;
     background: var(--white);
     border-radius: 0.5rem;
+    box-shadow: 0 1rem 1rem hsl(227deg 35% 25% / 5%);
   }
 
   .form-range {
@@ -140,8 +145,8 @@
     display: inline-block;
     background-color: var(--light-grayish-red);
     color: var(--light-red);
-    width: 2.5rem;
-    height: 1.125rem;
+    padding: 0 0.5rem;
+    white-space: nowrap;
     border-radius: 1.125rem;
     position: absolute;
     left: 100%;
@@ -168,10 +173,13 @@
   }
 
   li {
-    margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  li + li {
+    margin-top: 0.5rem;
   }
 
   li::before {
@@ -201,5 +209,101 @@
   button:hover,
   button:focus {
     color: var(--white);
+  }
+
+  @media (min-width: 992px) {
+    form {
+      min-height: 0;
+      box-shadow: 0 1rem 1rem hsl(227deg 35% 25% / 7%);
+    }
+
+    .form-main {
+      padding: 2.25rem 3rem 2.5rem;
+    }
+
+    .form-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .views {
+      font-size: 0.9375rem;
+      order: 1;
+      text-align: left;
+      transform: translate(-4px, 1px);
+    }
+
+    .price {
+      font-size: 16px;
+      order: 2;
+      margin-bottom: 1.2rem;
+    }
+
+    .price strong {
+      font-size: 2.5rem;
+    }
+    
+    .form-range {
+      order: 3;
+      margin-bottom: 2.5rem;
+    }
+
+    .views,
+    .price {
+      flex: 1 0 50%;
+      max-width: 50%;
+    }
+
+    .price strong {
+      margin-left: auto;
+    }
+
+    .form-range {
+      width: 100%;
+    }
+
+    .control {
+      margin-left: 0;
+    }
+
+    .discount {
+      margin-left: 0.5rem;
+      padding: 0 0.25rem;
+    }
+
+    .discount span {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      clip: none;
+    }
+
+    .form-footer {
+      display: flex;
+      align-items: center;
+      padding: 2rem 2.75rem 1.875rem 2.875rem;
+    }
+
+    ul,
+    .form-footer div {
+      flex: 1 0 50%;
+      max-width: 50%;
+    }
+
+    .form-footer div {
+      text-align: right;
+    }
+
+    ul {
+      margin-bottom: 0;
+    }
+
+    li {
+      justify-content: flex-start;
+    }
+
   }
 </style>

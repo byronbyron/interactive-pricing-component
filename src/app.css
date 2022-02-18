@@ -67,6 +67,51 @@ h1, p {
     height: 0;
 }
 
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--light-grayish-blue-alt);
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+.switch:hover .slider,
+input:checked + .slider {
+    background-color: var(--strong-cyan);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--strong-cyan);
+}
+
+input:checked + .slider:before {
+    transform: translateX(21px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 44px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
 /* The range input */
 input[type=range] {
     -webkit-appearance: none;
@@ -89,19 +134,21 @@ input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 2.5rem;
     width: 2.5rem;
+    border: 0;
     border-radius: 2.5rem;
     background: url('/icon-slider.svg') no-repeat center var(--strong-cyan);
     cursor: pointer;
     margin-top: -1rem;
     box-shadow: 0 1rem 1.5rem hsl(174 100% 65% / 0.9);
+    transition: background-color 0.15s;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, var(--soft-cyan) 0%, var(--soft-cyan) var(--range), var(--light-grayish-blue) var(--range), var(--light-grayish-blue) 100%);
+input[type=range]:hover::-webkit-slider-thumb,
+input[type=range]:active::-webkit-slider-thumb {
+    background-color: hsl(174, 86%, 37%);
 }
 
 input[type=range]::-moz-range-track {
-    width: 100%;
     height: 0.5rem;
     cursor: pointer;
     background: linear-gradient(to right, var(--soft-cyan) 0%, var(--soft-cyan) var(--range), var(--light-grayish-blue) var(--range), var(--light-grayish-blue) 100%);
@@ -111,9 +158,17 @@ input[type=range]::-moz-range-track {
 input[type=range]::-moz-range-thumb {
     height: 2.5rem;
     width: 2.5rem;
+    border: 0;
     border-radius: 2.5rem;
     background: url('/icon-slider.svg') no-repeat center var(--strong-cyan);
     cursor: pointer;
+    box-shadow: 0 1rem 1.5rem hsl(174 100% 65% / 0.9);
+    transition: background-color 0.15s;
+}
+
+input[type=range]:hover::-moz-range-thumb,
+input[type=range]:active::-moz-range-thumb {
+    background-color: hsl(174, 86%, 37%);
 }
 
 input[type=range]::-ms-track {
@@ -152,46 +207,17 @@ input[type=range]:focus::-ms-fill-upper {
     background: linear-gradient(to right, var(--soft-cyan) 0%, var(--soft-cyan) 50%, var(--light-grayish-blue) 50%, var(--light-grayish-blue) 100%);
 }
 
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--light-grayish-blue-alt);
-    transition: 0.4s;
-}
+@media (min-width: 992px) {
+    body {
+        background-position: 0 0;
+    }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 14px;
-    width: 14px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-}
+    .container {
+        max-width: 588px;
+    }
 
-input:checked + .slider {
-    background-color: var(--strong-cyan);
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px var(--strong-cyan);
-}
-
-input:checked + .slider:before {
-    transform: translateX(21px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 44px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
+    .switch {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }

@@ -18,9 +18,27 @@
   }
 
   p {
-    font-size: 13px;
+    font-size: 0.8125rem;
     line-height: 1.75;
     max-width: 22ch;
     margin: 0 auto;
+  }
+
+  @media (min-width: 992px) {
+    header {
+      padding-top: 3rem;
+      padding-bottom: 5.5rem;
+      background-position: center top 18%;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 0.3rem;
+    }
+
+    p {
+      font-size: 0.9375rem;
+      max-width: none;
+    }
   }
 </style>
