@@ -30,7 +30,7 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     color: var(--grayish-blue);
-    background: url('bg-pattern.svg') no-repeat left 0px top -50px var(--very-pale-blue);
+    background: url('/bg-pattern.svg') no-repeat left 0px top -50px var(--very-pale-blue);
     display: flex;
     align-items: center;
     justify-content: center;

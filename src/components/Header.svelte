@@ -8,7 +8,7 @@
     text-align: center;
     padding-top: 5.4375rem;
     padding-bottom: 4rem;
-    background: url('pattern-circles.svg') no-repeat center top 65%;
+    background: url('/pattern-circles.svg') no-repeat center top 65%;
   }
 
   h1 {
