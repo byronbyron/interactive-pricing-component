@@ -36,7 +36,8 @@
       </p>
 
       <div class="form-range" style="--range: {fillLower}">
-        <input id="rangeInput" type="range" min="0" value="2" max="4" step="1" on:input={handleInput}>
+        <label for="pageviews" class="sr-only">Page views</label>
+        <input id="pageviews" type="range" min="0" value="2" max="4" step="1" on:input={handleInput}>
       </div>
 
       <p class="price">
@@ -46,18 +47,23 @@
 
     <!-- Rounded switch -->
     <div class="control">
-      <label for="billing">Monthly Billing</label>
-
-      <label class="switch">
-        <input type="checkbox" id="billing" on:change={handleToggle}>
-        <span class="slider round"></span>
-      </label>
-
       <label for="billing">
-        <span>Yearly Billing</span>
+        <span class="label">
+          Monthly Billing
+        </span>
 
-        <span class="discount">
-          -25% <span>discount</span>
+        <span class="switch">
+          <span class="sr-only">Toggle billing</span>
+          <input type="checkbox" id="billing" on:change={handleToggle}>
+          <span class="slider round"></span>
+        </span>
+
+        <span class="label">
+          <span>Yearly Billing</span>
+
+          <span class="discount">
+            -25% <span>discount</span>
+          </span>
         </span>
       </label>
     </div>

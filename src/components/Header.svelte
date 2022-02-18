@@ -28,7 +28,7 @@
     header {
       padding-top: 3rem;
       padding-bottom: 5.5rem;
-      background-position: center top 18%;
+      background-position: center top 20%;
     }
 
     h1 {
