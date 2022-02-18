@@ -75,11 +75,10 @@
   }
 
   .form-main {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem 2.375rem;
   }
 
   .form-footer {
-    margin-top: auto;
     padding: 1.5rem 1.5rem 2rem;
     border-top: 1px solid var(--light-grayish-blue);
   }
@@ -145,5 +144,48 @@
     clip: rect(0,0,0,0);
     white-space: nowrap;
     border: 0;
+  }
+
+  ul {
+    font-size: 0.75rem;
+    list-style: none;
+    margin: 0 0 1.875rem;
+    padding-left: 0;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  li::before {
+    content: '';
+    display: block;
+    background: url('/icon-check.svg') no-repeat top left;
+    background-size: 9px 8px;
+    width: 9px;
+    height: 8px;
+    margin-right: 0.875rem;
+  }
+
+  button {
+    font-size: 0.75rem;
+    font-weight: 800;
+    max-width: 170px;
+    width: 100%;
+    height: 2.5rem;
+    color: var(--pale-blue);
+    border: 0;
+    border-radius: 2.5rem;
+    background-color: var(--dark-desaturated-blue);
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+
+  button:hover,
+  button:focus {
+    color: var(--white);
   }
 </style>
