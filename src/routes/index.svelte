@@ -62,7 +62,8 @@
           <span>Yearly Billing</span>
 
           <span class="discount">
-            -25% <span>discount</span>
+            <span class="discount-mobile">-25%</span>
+            <span class="discount-desktop">25% discount</span>
           </span>
         </span>
       </label>
@@ -159,16 +160,8 @@
     margin-left: 0.25rem;
   }
 
-  .discount span {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border: 0;
+  .discount-desktop {
+    display: none;
   }
 
   ul {
@@ -275,7 +268,7 @@
 
     .discount {
       margin-left: 0.5rem;
-      padding: 0 0.25rem;
+      padding: 0 0.5rem;
     }
 
     .discount span {
@@ -285,6 +278,14 @@
       margin: 0;
       overflow: visible;
       clip: none;
+    }
+
+    .discount-mobile {
+      display: none;
+    }
+
+    .discount-desktop {
+      display: block;
     }
 
     .form-footer {
