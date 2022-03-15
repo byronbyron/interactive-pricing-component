@@ -41,7 +41,7 @@
       </div>
 
       <p class="price">
-        <strong><output>{currency(price).format()}</output></strong> / month
+        <strong><output>{currency(price, { symbol: "£"}).format()}</output></strong> / month
       </p>
     </div>
 
