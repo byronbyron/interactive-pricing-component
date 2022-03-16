@@ -217,7 +217,6 @@ input[type=range]:focus::-ms-fill-upper {
 @media (min-width: 992px) {
     body {
         background-position: 0 0;
-        background-size: contain;
     }
 
     .container {
@@ -242,6 +241,13 @@ input[type=range]:focus::-ms-fill-upper {
             transform: translate3d(0, 2rem, 0);
             opacity: 0;
         }
+    }
+
+}
+
+@media (min-width: 1440px) {
+    body {
+        background-size: contain;
     }
 
 }
